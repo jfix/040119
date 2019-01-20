@@ -10,3 +10,13 @@
     padding-right: 15px;
     padding-left: 15px;
 } */
+
+/* Modifier class for 4:3 aspect ratio */
+.embed-responsive-4by3 {
+  padding-bottom: 75%;
+}
+
+.cover {
+    max-width: 20vw;
+    min-width: 200px;
+}
