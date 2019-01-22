@@ -1,22 +1,18 @@
-/* main > .container {
-    padding: 60px 15px 0;
-}
-  
-.footer {
-    background-color: #f5f5f5;
-}
-  
-.footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
-} */
-
 /* Modifier class for 4:3 aspect ratio */
 .embed-responsive-4by3 {
   padding-bottom: 75%;
 }
 
-.cover {
-    max-width: 20vw;
-    min-width: 200px;
+.no-border {
+    border-color: white !important;
+}
+
+/* 
+    when stacking photo above text
+    always make sure that text is left-aligned
+*/
+@media (max-width: 767px) {
+    .text-right { 
+        text-align:left !important; 
+    }
 }
