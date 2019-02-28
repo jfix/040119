@@ -13,9 +13,11 @@
 			this.$modal = $(".modal");
 			this.$overlay = $(".modal-overlay");
 			this.$restartButton = $("button.restart");
+			this.$cheatButton = $('#cheatLink')
 			this.cardsArray = $.merge(cards, cards);
 			this.shuffleCards(this.cardsArray);
 			this.setup();
+			this.countdown();
 		},
 
 		shuffleCards: function(cardsArray){
@@ -32,7 +34,8 @@
 		},
 
 		binding: function(){
-			this.$memoryCards.on("click", this.cardClicked);
+			this.$memoryCards.on("click", this.cardClicked)
+			this.$cheatButton.on('click', this.revealAll)
 			this.$restartButton.on("click", $.proxy(this.reset, this));
 		},
 		// kinda messy but hey
@@ -67,7 +70,32 @@
 				Memory.$game.fadeOut();
 			}, 1000);
 		},
-
+		countdown: function() {
+			const counter = $('#countdown')
+			let initialValue = parseInt(counter.text())
+			const cdId = setInterval(function() {
+				if (initialValue > 0) {
+					initialValue--					
+					counter
+						.text(initialValue)
+						.css({opacity: 0})
+						.animate({opacity: 1}, 700 );
+				} else {
+					clearInterval(cdId)
+					console.log(`end of countdown`)
+					$('#overlay').hide()
+				}
+			}, 1000)
+		},
+		revealAll: function() {
+			$('.card:not(:has(.picked))').each(function(index) {
+				const card = $(this)
+				card.find(".inside").addClass("picked");
+			})
+			setTimeout(() => {
+				window.location.href = '/'
+			}, 2000)
+		},
 		showModal: function(){
 			this.$overlay.show();
 			this.$modal.fadeIn("slow");
@@ -79,25 +107,22 @@
 		},
 
 		reset: function(){
-			this.hideModal();
-			this.shuffleCards(this.cardsArray);
-			this.setup();
-			this.$game.show("slow");
+			window.location.href = '/'
 		},
 
 		// Fisher--Yates Algorithm -- http://bost.ocks.org/mike/shuffle/
 		shuffle: function(array){
 			var counter = array.length, temp, index;
-	   	// While there are elements in the array
-	   	while (counter > 0) {
-        	// Pick a random index
-        	index = Math.floor(Math.random() * counter);
-        	// Decrease counter by 1
-        	counter--;
-        	// And swap the last element with it
-        	temp = array[counter];
-        	array[counter] = array[index];
-        	array[index] = temp;
+	   		// While there are elements in the array
+	   		while (counter > 0) {
+				// Pick a random index
+				index = Math.floor(Math.random() * counter);
+				// Decrease counter by 1
+				counter--;
+				// And swap the last element with it
+				temp = array[counter];
+				array[counter] = array[index];
+				array[index] = temp;
 	    	}
 	    	return array;
 		},
