@@ -93,7 +93,7 @@
 				card.find(".inside").addClass("picked");
 			})
 			setTimeout(() => {
-				window.location.href = '/'
+				window.location.href = 'index.html'
 			}, 2000)
 		},
 		showModal: function(){
@@ -107,7 +107,7 @@
 		},
 
 		reset: function(){
-			window.location.href = '/'
+			window.location.href = 'index.html'
 		},
 
 		// Fisher--Yates Algorithm -- http://bost.ocks.org/mike/shuffle/
