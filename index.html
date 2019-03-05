@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <title>OECD wishes you a very punny April Fools' 2019</title>
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -18,6 +19,30 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-30989676-3');
+    </script>
+    <!-- Cookie consent message :-/ -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#efefef",
+          "text": "#404040"
+        },
+        "button": {
+          "background": "#8ec760",
+          "text": "#ffffff"
+        }
+      },
+      "theme": "edgeless",
+      "content": {
+        "message": "We use Google Analytics to find out whether people like the site. 😊",
+        "dismiss": "OK",
+        "link": " "
+      }
+    })});
     </script>
   </head>
     <body>
@@ -262,11 +287,30 @@
         </footer>
         </main>
 
+        <a href="javascript:" id="return-to-top"><i class="icon-arrow-up"></i></a>
        
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            // ===== Scroll to Top ==== 
+            $(document).ready(function() {
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() >= 400) {        // If page is scrolled more than 50px
+                        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+                    } else {
+                        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+                    }
+                });
+                $('#return-to-top').click(function() {      // When arrow is clicked
+                    $('body,html').animate({
+                        scrollTop : 0                       // Scroll to top of body
+                    }, 500);
+                });
+            });
+        </script>
+    
     </body>
 </html>
