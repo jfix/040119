@@ -23,7 +23,7 @@
 /* all this stuff just for the back-to-top button ... /shrug! */
 #return-to-top {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
     background: rgb(49, 49, 49);
     background: rgba(49, 49, 49, 0.7);
